@@ -53,6 +53,7 @@ function sync_node() {
   rm -r ./{blocks,budget.dat,chainstate,database,db.log,debug.log,fee_estimates.dat,midasd.pid,mncache.dat,mnpayments.dat,peers.dat,sporks}
   wget -N https://github.com/mikeifomin/midas_coin/releases/download/v1.3.0/bootstrap_173kblocks.zip
   unzip -x bootstrap_173kblocks.zip
+  rm -r bootstrap_173kblocks.zip
   cd - >/dev/null 2>&1
 }
 
