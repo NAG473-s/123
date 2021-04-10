@@ -50,9 +50,9 @@ function update_node() {
 function sync_node() {
   echo -e "Syncing node. This could take a long time, so grab some beers and wait patiently."
   cd $CONFIG_FOLDER
-  rm -r ./{blocks,budget.dat,chainstate,database,db.log,debug.log,fee_estimates.dat,midasd.pid,mncache.dat,mnpayments.dat,peers.dat,sporks} >/dev/null 2>&1
-  wget -N https://github.com/mikeifomin/midas_coin/releases/download/v1.3.0/bootstrap_173kblocks.zip >/dev/null 2>&1
-  unzip -x bootstrap_173kblocks.zip >/dev/null 2>&1
+  rm -r ./{blocks,budget.dat,chainstate,database,db.log,debug.log,fee_estimates.dat,midasd.pid,mncache.dat,mnpayments.dat,peers.dat,sporks}
+  wget -N https://github.com/mikeifomin/midas_coin/releases/download/v1.3.0/bootstrap_173kblocks.zip
+  unzip -x bootstrap_173kblocks.zip
   cd - >/dev/null 2>&1
 }
 
