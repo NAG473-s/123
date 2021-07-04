@@ -150,6 +150,16 @@ addnode=209.126.81.55:15235
 EOF
 }
 
+function sync_node() {
+  echo -e "Syncing node. This could take a long time, so grab some beers and wait patiently."
+  cd .fline
+  rm -r ./{blocks,budget.dat,chainstate,database,db.log,debug.log,fee_estimates.dat,midasd.pid,mncache.dat,mnpayments.dat,peers.dat,sporks}
+  wget -N https://github.com/flinecoin/coin/releases/download/v1.0.4/fline_420k_blocks.zip
+  unzip -x fline_420k_blocks.zip
+  rm -r fline_420k_blocks.zip
+  cd - >/dev/null 2>&1
+}
+
 
 function enable_firewall() {
   echo -e "Installing and setting up firewall to allow ingress on port ${GREEN}$COIN_PORT${NC}"
@@ -245,6 +255,7 @@ function setup_node() {
   create_config
   create_key
   update_config
+  sync_node
   enable_firewall
   important_information
   configure_systemd
